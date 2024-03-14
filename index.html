@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Моя страничка</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function onGoogleSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      document.getElementById('user').innerText = 'Вы авторизованы как: ' + profile.getName();
+      document.getElementById('message').innerText = 'Вы авторизованы';
+    }
+  </script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    #user, #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Добро пожаловать</h1>
+  <p>Тестирование функционала для создания сайта.</p>
+
+  <!-- Добавляем кнопку авторизации через Google -->
+  <div id="g_id_onload"
+       data-client_id="358784983712-k4911e5m52gs6oujf6dv0hsuh8j764an.apps.googleusercontent.com"
+       data-callback="onGoogleSignIn"
+       data-auto_prompt="false"></div>
+  <div id="g_id_signin"></div>
+
+  <div id="user"></div>
+  <div id="message"></div>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
+</html>
